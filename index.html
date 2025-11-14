@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - Perbandingan Ban</title>
+
+  <!-- Highcharts -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/treemap.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+  <!-- Chart map support (we'll use scatter for geolocation, no map join required) -->
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Dashboard Realtime — Dunlop vs Bridgestone</h1>
+      <p class="subtitle">Data langsung dari tabel <code>responses</code> (Supabase)</p>
+    </header>
+
+    <section class="grid">
+      <div class="card card-small">
+        <h3>Total Responden</h3>
+        <div id="total_count" class="big-number">0</div>
+      </div>
+
+      <div class="card">
+        <h3>Distribusi Gender</h3>
+        <div id="chart-gender" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <h3>Perbandingan Per Aspek (Side-by-side)</h3>
+        <div id="chart-sidebyside" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <h3>Radar — Dunlop vs Bridgestone</h3>
+        <div id="chart-radar" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <h3>Difference (Dunlop - Bridgestone)</h3>
+        <div id="chart-diff" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <h3>Scatter per Responden (Dunlop avg vs Bridgestone avg)</h3>
+        <div id="chart-scatter" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <h3>Treemap — Proporsi Provinsi</h3>
+        <div id="chart-treemap" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <h3>Geolokasi Provinsi (scatter)</h3>
+        <div id="chart-geo" class="chart"></div>
+      </div>
+
+    </section>
+
+    <footer>
+      <div id="status" class="status">Memuat data...</div>
+    </footer>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
