@@ -5,69 +5,68 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dashboard - Perbandingan Ban</title>
 
-  <!-- Highcharts -->
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/highcharts-more.js"></script>
-  <script src="https://code.highcharts.com/modules/treemap.js"></script>
-  <script src="https://code.highcharts.com/modules/series-label.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-  <!-- Chart map support (we'll use scatter for geolocation, no map join required) -->
   <link rel="stylesheet" href="dashboard.css" />
 </head>
+
 <body>
   <div class="wrap">
+
     <header>
-      <h1>Dashboard Realtime — Dunlop vs Bridgestone</h1>
-      <p class="subtitle">Data langsung dari tabel <code>responses</code> (Supabase)</p>
+      <h1>Dashboard Realtime — Dunlop vs Kompetitor</h1>
+      <p class="subtitle">Update otomatis (Supabase Realtime)</p>
     </header>
 
-    <section class="grid">
-      <div class="card card-small">
-        <h3>Total Responden</h3>
-        <div id="total_count" class="big-number">0</div>
+    <!-- ROW 1 : 4 charts -->
+    <section class="grid-4">
+      <div class="card small">
+        <h3>Speedtest</h3>
+        <div id="chart-speed" class="chart small-chart"></div>
       </div>
 
-      <div class="card">
-        <h3>Distribusi Gender</h3>
-        <div id="chart-gender" class="chart"></div>
+      <div class="card small">
+        <h3>Comfort</h3>
+        <div id="chart-comfort" class="chart small-chart"></div>
       </div>
 
-      <div class="card">
-        <h3>Perbandingan Per Aspek (Side-by-side)</h3>
-        <div id="chart-sidebyside" class="chart"></div>
+      <div class="card small">
+        <h3>Noise</h3>
+        <div id="chart-noise" class="chart small-chart"></div>
       </div>
 
-      <div class="card">
-        <h3>Radar — Dunlop vs Bridgestone</h3>
-        <div id="chart-radar" class="chart"></div>
+      <div class="card small">
+        <h3>Radar</h3>
+        <div id="chart-radar" class="chart small-chart"></div>
       </div>
-
-      <div class="card">
-        <h3>Difference (Dunlop - Bridgestone)</h3>
-        <div id="chart-diff" class="chart"></div>
-      </div>
-
-      <div class="card">
-        <h3>Scatter per Responden (Dunlop avg vs Bridgestone avg)</h3>
-        <div id="chart-scatter" class="chart"></div>
-      </div>
-
-      <div class="card">
-        <h3>Treemap — Proporsi Provinsi</h3>
-        <div id="chart-treemap" class="chart"></div>
-      </div>
-
-      <div class="card">
-        <h3>Geolokasi Provinsi (scatter)</h3>
-        <div id="chart-geo" class="chart"></div>
-      </div>
-
     </section>
 
-    <footer>
-      <div id="status" class="status">Memuat data...</div>
-    </footer>
+    <!-- ROW 2 : TABLE -->
+    <section class="table-wrap">
+      <h3>5 Data Terbaru</h3>
+
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Nama</th>
+            <th colspan="2" class="dunlop-head">Speedtest</th>
+            <th colspan="2" class="dunlop-head">Comfort</th>
+            <th colspan="2" class="dunlop-head">Noise</th>
+          </tr>
+          <tr>
+            <th class="dunlop-sub">Dunlop</th>
+            <th class="komp-sub">Kompetitor</th>
+            <th class="dunlop-sub">Dunlop</th>
+            <th class="komp-sub">Kompetitor</th>
+            <th class="dunlop-sub">Dunlop</th>
+            <th class="komp-sub">Kompetitor</th>
+          </tr>
+        </thead>
+        <tbody id="data-body"></tbody>
+      </table>
+    </section>
+
   </div>
 
   <script type="module" src="dashboard.js"></script>
