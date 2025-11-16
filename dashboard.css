@@ -1,55 +1,140 @@
-:root{
-  --bg:#f6f8fb;
-  --card:#fff;
-  --muted:#6b7280;
-  --accent:#2b7cff;
+:root {
+  --bg: #f6f8fb;
+  --card: #fff;
+  --muted: #6b7280;
+
+  --dunlop-main: #e6b800;
+  --dunlop-sub: #ffe680;
+
+  --komp-main: #d40000;
+  --komp-sub: #ffd6d6;
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  background:var(--bg);
-  color:#0b1220;
+body {
+  margin: 0;
+  font-family: Inter, Arial;
+  background: var(--bg);
 }
 
-.wrap{
-  max-width:1200px;
-  margin:28px auto;
-  padding:20px;
+.wrap {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 10px;
 }
 
-header h1{
-  margin:0 0 6px 0;
-  font-size:20px;
+header h1 {
+  margin: 0 0 4px;
+  font-size: 20px;
 }
-.subtitle{ color:var(--muted); font-size:13px; margin:0 0 18px 0; }
-
-.grid{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:16px;
+.subtitle {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--muted);
 }
 
-/* small card */
-.card-small{ min-height:120px; display:flex; flex-direction:column; justify-content:center; align-items:center; }
-
-.card{
-  background:var(--card);
-  border-radius:12px;
-  padding:14px;
-  box-shadow: 0 6px 20px rgba(12,20,40,0.06);
-  min-height:300px;
-  display:flex;
-  flex-direction:column;
+/* -------------------------
+   GRID 4 KOTAK (CHARTS)
+--------------------------- */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
 }
-.card h3{ margin:0 0 8px 0; font-size:15px; color:#0b1220; }
-.chart{ flex:1; min-height:180px; }
-.big-number{ font-size:28px; font-weight:700; color:#0b1220; margin-top:8px; }
 
-.status{ color:var(--muted); margin-top:14px; font-size:13px; }
+/* CARD */
+.card.small {
+  background: var(--card);
+  padding: 8px 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+  min-height: 220px; /* lebih kecil agar muat 1 layar */
+  display: flex;
+  flex-direction: column;
+}
 
-/* responsive */
-@media (max-width:900px){
-  .grid{ grid-template-columns: 1fr; }
+.card.small h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* CHART SIZE */
+.small-chart {
+  flex: 1;
+  min-height: 150px;
+}
+
+/* -------------------------
+         TABLE
+--------------------------- */
+
+.table-wrap {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+
+.table-wrap h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+table.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* HEADER */
+.styled-table thead th {
+  text-align: center;
+  padding: 8px;
+  font-weight: 600;
+  color: #000;
+}
+
+.dunlop-head {
+  background: #ececec;
+}
+.dunlop-sub {
+  background: var(--dunlop-sub);
+}
+.komp-sub {
+  background: var(--komp-sub);
+}
+
+.styled-table thead th[rowspan] {
+  background: #ececec; 
+}
+
+/* ROWS */
+.styled-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+.styled-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.styled-table td {
+  padding: 8px 6px;
+  text-align: center;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+/* Nyundul */
+@keyframes nyundul {
+  from { transform: translateY(15px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
