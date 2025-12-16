@@ -32,10 +32,6 @@ channel
     console.log("Realtime status:", status);
   });
 
-
-// =========================
-// LOAD AWAL
-// =========================
 loadData(false);
 
 
@@ -202,3 +198,4 @@ function updateCharts(rows) {
     ]
   });
 }
+
