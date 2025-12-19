@@ -1,141 +1,117 @@
 :root {
-  --bg: #f6f8fb;
-  --card: #fff;
-  --muted: #6b7280;
-
-  --dunlop-main: #e6b800;
-  --dunlop-sub: #ffe680;
-
-  --komp-main: #d40000;
-  --komp-sub: #ffd6d6;
+  --bg:#f6f8fb;
+  --card:#fff;
+  --dunlop-sub:#ffe680;
+  --komp-sub:#ffd6d6;
 }
 
 body {
-  margin: 0;
-  font-family: Inter, Arial;
-  background: var(--bg);
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:var(--bg);
 }
 
 .wrap {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 10px;
+  max-width:1300px;
+  margin:16px auto;
+  padding:10px;
 }
 
+/* HEADER */
 header h1 {
-  margin: 0 0 4px;
-  font-size: 20px;
-}
-.subtitle {
-  margin: 0 0 14px;
-  font-size: 13px;
-  color: var(--muted);
+  margin:0 0 14px;
+  font-size:20px;
 }
 
-/* -------------------------
-   GRID 4 KOTAK (CHARTS)
---------------------------- */
+/* GRID */
 .grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 18px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:22px;
 }
 
 /* CARD */
 .card.small {
-  background: var(--card);
-  padding: 8px 10px;
-  border-radius: 10px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
+  background:var(--card);
+  padding:12px;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,.1);
+  height:350px;            
+  display:flex;
+  flex-direction:column;
 }
 
 .card.small h3 {
-  margin: 0 0 4px;
-  font-size: 14px;
-  font-weight: 600;
+  margin:0 0 6px;
+  font-size:14px;
 }
 
-/* CHART SIZE */
+.card.small h3 span {
+  font-size:11px;
+  color:#666;
+}
+
+/* CHART */
 .small-chart {
-  flex: 1;
-  min-height: 150px;
+  width:100%;
+  height:360px;             
 }
 
-/* -------------------------
-         TABLE
---------------------------- */
+/* TABLE GRID */
+.grid-2-table {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
 
+/* TABLE */
 .table-wrap {
-  background: var(--card);
-  padding: 12px;
-  border-radius: 10px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+  background:var(--card);
+  padding:14px;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,.1);
 }
 
 .table-wrap h3 {
-  margin: 0 0 10px;
-  font-size: 15px;
-  font-weight: 600;
+  margin:0 0 6px;
 }
 
-table.styled-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  border-radius: 10px;
-  overflow: hidden;
+table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
 }
 
-/* HEADER */
-.styled-table thead th {
-  text-align: center;
-  padding: 8px;
-  font-weight: 600;
-  color: #000;
+th,td {
+  padding:8px 6px;
+  border-bottom:1px solid #e4e4e4;
+  text-align:center;
 }
 
-.dunlop-head {
-  background: #ececec;
-}
-.dunlop-sub {
-  background: var(--dunlop-sub);
-}
-.komp-sub {
-  background: var(--komp-sub);
+thead tr:first-child th { background:#ececec; }
+thead .dunlop-sub { background:var(--dunlop-sub); }
+thead .komp-sub { background:var(--komp-sub); }
+
+tbody tr:nth-child(even) { background:#f9f9f9; }
+
+.tdname {
+  text-align:left;
+  padding-left:12px;
 }
 
-.styled-table thead th[rowspan] {
-  background: #ececec; 
-}
-
-/* ROWS */
-.styled-table tbody tr:nth-child(even) {
-  background: #f9f9f9;
-}
-.styled-table tbody tr:nth-child(odd) {
-  background: #ffffff;
-}
-
-.styled-table td {
-  padding: 8px 6px;
-  text-align: center;
-  border-bottom: 1px solid #e4e4e4;
-}
-
-/* Nyundul */
+/* ANIMATION */
 @keyframes nyundul {
-  from { transform: translateY(15px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {transform:translateY(12px);opacity:0}
+  to {transform:none;opacity:1}
 }
 
 /* RESPONSIVE */
-@media (max-width: 1000px) {
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media(max-width:1100px){
+  .grid-4{grid-template-columns:repeat(2,1fr)}
 }
-
+@media(max-width:900px){
+  .grid-2-table{grid-template-columns:1fr}
+  .card.small{height:380px}
+  .small-chart{height:300px}
+}
