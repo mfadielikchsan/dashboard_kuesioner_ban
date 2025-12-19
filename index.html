@@ -12,63 +12,78 @@
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <header>
-      <h1>Dashboard — Dunlop vs Kompetitor</h1>
-      <p class="subtitle"></p>
-    </header>
+  <header>
+    <h1>Dashboard — Dunlop vs Kompetitor</h1>
+  </header>
 
-    <section class="grid-4">
-      <div class="card small">
-        <h3>Speedtest</h3>
-        <div id="chart-speed" class="chart small-chart"></div>
-      </div>
+  <!-- CHART -->
+  <section class="grid-4">
+    <div class="card small">
+      <h3>Stability <span>(m/s² · higher is better)</span></h3>
+      <div id="chart-stability" class="small-chart"></div>
+    </div>
 
-      <div class="card small">
-        <h3>Comfort</h3>
-        <div id="chart-comfort" class="chart small-chart"></div>
-      </div>
+    <div class="card small">
+      <h3>Comfort <span>(m/s² · lower is better)</span></h3>
+      <div id="chart-comfort" class="small-chart"></div>
+    </div>
 
-      <div class="card small">
-        <h3>Noise</h3>
-        <div id="chart-noise" class="chart small-chart"></div>
-      </div>
+    <div class="card small">
+      <h3>Noise <span>(dB · lower is better)</span></h3>
+      <div id="chart-noise" class="small-chart"></div>
+    </div>
 
-      <div class="card small">
-        <h3>Radar</h3>
-        <div id="chart-radar" class="chart small-chart"></div>
-      </div>
-    </section>
+    <div class="card small">
+      <h3>Radar Comparison</h3>
+      <div id="chart-radar" class="small-chart"></div>
+    </div>
+  </section>
 
-    <section class="table-wrap">
-      <h3>5 Data Terbaru</h3>
+  <!-- TABLE -->
+  <section class="grid-2-table">
 
+    <div class="table-wrap">
+      <h3>Zenix</h3>
       <table class="styled-table">
         <thead>
           <tr>
             <th rowspan="2">Nama</th>
-            <th colspan="2" class="dunlop-head">Speedtest</th>
-            <th colspan="2" class="dunlop-head">Comfort</th>
-            <th colspan="2" class="dunlop-head">Noise</th>
+            <th colspan="2">Stability (m/s²)</th>
           </tr>
           <tr>
             <th class="dunlop-sub">Dunlop</th>
             <th class="komp-sub">Kompetitor</th>
+          </tr>
+        </thead>
+        <tbody id="zenix-body"></tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap">
+      <h3>M6</h3>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Nama</th>
+            <th colspan="2">Comfort (m/s²)</th>
+            <th colspan="2">Noise (dB)</th>
+          </tr>
+          <tr>
             <th class="dunlop-sub">Dunlop</th>
             <th class="komp-sub">Kompetitor</th>
             <th class="dunlop-sub">Dunlop</th>
             <th class="komp-sub">Kompetitor</th>
           </tr>
         </thead>
-        <tbody id="data-body"></tbody>
+        <tbody id="m6-body"></tbody>
       </table>
-    </section>
+    </div>
 
-  </div>
+  </section>
+</div>
 
-  <script type="module" src="dashboard.js"></script>
+<script type="module" src="dashboard.js"></script>
 </body>
 </html>
-
-
